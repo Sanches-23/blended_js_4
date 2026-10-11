@@ -49,6 +49,7 @@ console.log(navigationLiElem);
 // 19 - зроби це саме, але використовуй шаблонні рядки та метод insertAdjacentHTML()
 // 20 - очисти список
 
+
 navigationLiElem.style.backgroundColor = "yellow";
 
 navigationLiElem.lastElementChild.textContent = "Я змінив тут текст!";
@@ -90,6 +91,7 @@ listEl.insertAdjacentHTML("beforeend", lastLi);
 
 listEl.innerHTML = ``;
 
+
 // Створіть контейнер div (з класом number-container) в HTML-документі
 // та динамічно створіть 100 блоків (з класом number) наповнивши їх рандомними
 // числами від 1 до 100 і додайте їх до контейнера div(numberContainer).
@@ -97,10 +99,21 @@ listEl.innerHTML = ``;
 // Непарні числа - жовтий фон (додати клас odd).
 
 // const randomNumber = () => Math.floor(Math.random() * 100) + 1;
+const numberContainer = document.querySelector(".number-container");
+const randomNumber = () => Math.floor(Math.random() * 100) + 1;
 
-
-
-
+for (let i = 0; i < 100; i += 1) {
+  const number = randomNumber();
+  const divNumber = document.createElement("div");
+  divNumber.classList.add("number");
+  divNumber.textContent = number;
+  if (number % 2 === 0) {
+    divNumber.classList.add("even");
+  } else {
+    divNumber.classList.add("odd");
+  }
+  numberContainer.append(divNumber);
+}
 
 // Form Events, Input, Focus, Blur and Submit.
 
@@ -130,10 +143,6 @@ listEl.innerHTML = ``;
 // При відправці форми, очисти інпут, верни чек бокс у положення
 // false, верни дефолтне значення "Anonymous" у span.
 
-
-
-
-
 // Використовуй шаблон розмітки з файлу html та напиши наступний функціонал:
-// При кліку на кнопку "Зменшити" квадрат стає меньшим на 20 пікселів, 
+// При кліку на кнопку "Зменшити" квадрат стає меньшим на 20 пікселів,
 // При кліку на кнопку "Збільшити" - квадрат стає більшим на 20 пікселів.
